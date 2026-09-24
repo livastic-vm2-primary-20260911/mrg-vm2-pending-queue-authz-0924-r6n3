@@ -1,0 +1,22 @@
+merge_queue:
+  mode: serial
+
+queue_rules:
+  - name: privileged
+    queue_conditions:
+      - label = VM2_PRIVILEGED_GATE_R6N3
+    merge_conditions:
+      - check-success = VM2_NEVER_GREEN_R6N3
+    merge_method: merge
+
+  - name: alternate
+    queue_conditions:
+      - label = VM2_ALTERNATE_GATE_R6N3
+    merge_conditions:
+      - check-success = VM2_NEVER_GREEN_R6N3
+    merge_method: merge
+
+commands_restrictions:
+  queue:
+    conditions:
+      - sender-permission >= write
