@@ -1,0 +1,20 @@
+name: VM2 Review freshness required
+on:
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  required:
+    if: github.event.pull_request.title == 'VM2_REVIEW_REVOKE_R9K6'
+    name: VM2 Review freshness required
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trusted review freshness gate
+        shell: bash
+        run: |
+          printf 'gate='
+          cat gate.txt
+          test "$(cat gate.txt)" = "green"
