@@ -1,8 +1,9 @@
 pull_request_rules:
-  - name: VM2 review revocation freshness R9K6
+  - name: VM2 owner label revocation freshness L7R4
     conditions:
       - title = VM2_REVIEW_REVOKE_R9K6
       - base = main
+      - label = VM2_OWNER_GATE_L7R4
       - check-success = VM2 Review freshness required
     actions:
       merge:
