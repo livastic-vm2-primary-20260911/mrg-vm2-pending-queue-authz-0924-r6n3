@@ -11,7 +11,7 @@ queue_rules:
 
   - name: alternate
     queue_conditions:
-      - title = VM2_ALT_TARGET_BIND_0926
+      - label = VM2_ALTERNATE_GATE_R6N3
     merge_conditions:
       - check-success = VM2_NEVER_GREEN_R6N3
     merge_method: merge
